@@ -45,8 +45,8 @@ public class PayPeriodSQLiteHelper extends SQLiteOpenHelper {
 		// CREATE TABLE tablename (id INTEGER PRIMARY KEY AUTOINCREMENT, startdate TEXT, enddate TEXT)
 		
 		String CREATE_PAY_PERIOD_TABLE = "CREATE TABLE " + 
-				TABLE_PAY_PERIODS + " (" + 
-				KEY_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, " + 
+				TABLE_PAY_PERIODS + " ( " + 
+				KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + 
 				KEY_START_DATETIME + " TEXT, " +
 				KEY_END_DATETIME + " TEXT )";
 		

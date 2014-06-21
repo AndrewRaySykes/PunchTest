@@ -1,8 +1,13 @@
 package com.andrewraysykes.punchtest;
 
+import hirondelle.date4j.DateTime;
+
+import java.util.TimeZone;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,12 +17,33 @@ public class MainActivity extends Activity {
 	
 	public static final String TAG = MainActivity.class.getSimpleName();
 	
+	public static final String CURRENT_PAY_PERIOD_ID = "currentPayPeriodId";
+	
+	protected PayPeriod mCurrentPayPeriod = new PayPeriod();
+	protected int mCurrentPayPeriodId = 0;
 	protected Button mEnterTimesButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+//		if (savedInstanceState != null) {
+//			mCurrentPayPeriodId = savedInstanceState.getInt(CURRENT_PAY_PERIOD_ID);
+//			Log.i(TAG, "current pay period id: " + mCurrentPayPeriodId);
+//		}
+		
 		setContentView(R.layout.activity_main);
+		
+		PayPeriodSQLiteHelper db = new PayPeriodSQLiteHelper(this);
+		
+		DateTime testdt1 = DateTime.now(TimeZone.getDefault());
+		DateTime testdt2 = DateTime.now(TimeZone.getDefault());
+		
+		db.addPayPeriod(new PayPeriod(testdt1, testdt2));
+						
+		mCurrentPayPeriod = db.getPayPeriod(mCurrentPayPeriodId);
+		
+		Log.i(TAG, mCurrentPayPeriod.toString());
 		
 		mEnterTimesButton = (Button)findViewById(R.id.main_btn_time_entry);
 		
@@ -53,4 +79,11 @@ public class MainActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+//	@Override
+//	public void onSaveInstanceState(Bundle savedInstanceState) {
+//		super.onRestoreInstanceState(savedInstanceState);
+//		
+//		savedInstanceState.putInt(CURRENT_PAY_PERIOD_ID, mCurrentPayPeriodId);
+//	}
 }
