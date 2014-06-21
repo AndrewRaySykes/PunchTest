@@ -9,19 +9,37 @@
     tools:context="com.andrewraysykes.punchtest.MainActivity" >
 
     <Button
-        android:id="@+id/buttonTimeEntry"
-        android:layout_width="wrap_content"
+        android:id="@+id/main_btn_time_entry"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginBottom="40dp"
         android:text="Enter Times" />
 
-    <Button
-        android:id="@+id/buttonTimeDisplay"
+    <TextView
+        android:id="@+id/main_text_current_pay_period"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/buttonTimeEntry"
-        android:text="Display Times" />
+        android:layout_below="@+id/main_btn_time_entry"
+        android:textSize="20sp"
+        android:text="Current Pay Period" />
+
+    <Button
+        android:id="@+id/main_btn_change_pay_period"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/main_text_current_pay_period"
+        android:text="Change Current Pay Period" />
+
+    <ListView
+        android:id="@+id/main_list_current_times"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/main_btn_change_pay_period" >
+    </ListView>
 
 </RelativeLayout>

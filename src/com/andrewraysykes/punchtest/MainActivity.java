@@ -13,14 +13,13 @@ public class MainActivity extends Activity {
 	public static final String TAG = MainActivity.class.getSimpleName();
 	
 	protected Button mEnterTimesButton;
-	protected int test;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		mEnterTimesButton = (Button)findViewById(R.id.buttonTimeEntry);
+		mEnterTimesButton = (Button)findViewById(R.id.main_btn_time_entry);
 		
 		mEnterTimesButton.setOnClickListener(new View.OnClickListener() {
 			

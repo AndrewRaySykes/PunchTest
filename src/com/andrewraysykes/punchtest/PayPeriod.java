@@ -28,12 +28,20 @@ public class PayPeriod {
 		return startDateTime;
 	}
 	
+	public String getStartDateTimeForSql() {
+		return startDateTime.format(PunchConstants.DATETIME_FORMAT_FOR_SQL);
+	}
+	
 	public void setStartDateTime(DateTime startDateTime) {
 		this.startDateTime = startDateTime;
 	}
 	
 	public DateTime getEndDateTime() {
 		return endDateTime;
+	}
+	
+	public String getEndDateTimeForSql() {
+		return endDateTime.format(PunchConstants.DATETIME_FORMAT_FOR_SQL);
 	}
 	
 	public void setEndDateTime(DateTime endDateTime) {

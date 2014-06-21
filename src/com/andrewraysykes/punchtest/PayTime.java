@@ -5,13 +5,15 @@ import hirondelle.date4j.DateTime;
 public class PayTime {
 	
 	private int id;
+	private int payPeriodId;
 	private DateTime punchIn;
 	private DateTime punchOut;
 	
 	public PayTime(){}
 	
-	public PayTime(DateTime punchIn, DateTime punchOut) {
+	public PayTime(int payPeriodId, DateTime punchIn, DateTime punchOut) {
 		super();
+		this.payPeriodId = payPeriodId;
 		this.punchIn = punchIn;
 		this.punchOut = punchOut;
 	}
@@ -22,6 +24,14 @@ public class PayTime {
 	
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public int getPayPeriodId() {
+		return payPeriodId;
+	}
+	
+	public void setPayPeriodId(int payPeriodId) {
+		this.payPeriodId = payPeriodId;
 	}
 	
 	public DateTime getPunchIn() {
@@ -43,6 +53,7 @@ public class PayTime {
 	@Override
 	public String toString() {
 		return "PayTime [id=" + id + 
+				", payPeriodId=" + payPeriodId + 
 				", punchIn=" + punchIn.format(PunchConstants.DATETIME_FORMAT_FOR_SQL).toString() + 
 				", punchOut=" + punchIn.format(PunchConstants.DATETIME_FORMAT_FOR_SQL).toString() + 
 				"]";
