@@ -13,6 +13,7 @@ public class MainActivity extends Activity {
 	public static final String TAG = MainActivity.class.getSimpleName();
 	
 	protected Button mEnterTimesButton;
+	protected int test;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
